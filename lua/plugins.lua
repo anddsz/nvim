@@ -36,35 +36,20 @@ return require('packer').startup(function(use)
     use({
         'neovim/nvim-lspconfig',
         requires = {
-<<<<<<< HEAD
             'hrsh7th/nvim-cmp',
-=======
->>>>>>> 53d1aeb (23-03-22)
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
-<<<<<<< HEAD
-            'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip'
-        },
-        config = function() require('plugins.nvim-lspconfig') end
-=======
-            'hrsh7th/nvim-cmp',
             'hrsh7th/cmp-vsnip',
             'hrsh7th/vim-vsnip'
         },
         config = function() require('plugins.lsp') end
->>>>>>> 53d1aeb (23-03-22)
     })
 
     use({
         'nvim-lualine/lualine.nvim',
-<<<<<<< HEAD
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-=======
         requires = { 'ryanoasis/vim-devicons', opt = true },
->>>>>>> 53d1aeb (23-03-22)
     })
 
     use({
@@ -73,13 +58,8 @@ return require('packer').startup(function(use)
     })
 
     use 'williamboman/nvim-lsp-installer'
-<<<<<<< HEAD
-    use 'folke/tokyonight.nvim'
-=======
 
     use 'morhetz/gruvbox'
->>>>>>> 53d1aeb (23-03-22)
-
     use 'ap/vim-css-color'
 
   if packer_bootstrap then
