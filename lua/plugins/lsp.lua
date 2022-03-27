@@ -68,7 +68,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+    local opts = {capabilities = capabilities}
 
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
@@ -79,5 +79,4 @@ lsp_installer.on_server_ready(function(server)
     -- before passing it onwards to lspconfig.
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     server:setup(opts)
-    capabilities = capabilities
 end)

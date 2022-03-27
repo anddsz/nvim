@@ -57,10 +57,17 @@ return require('packer').startup(function(use)
         config = function() require('plugins.bufferline') end
     })
 
+    use({
+        'numToStr/Comment.nvim',
+        config = function() require('Comment').setup{} end
+    })
+
     use 'williamboman/nvim-lsp-installer'
 
-    use 'morhetz/gruvbox'
+    use 'folke/tokyonight.nvim'
     use 'ap/vim-css-color'
+
+    use 'nvim-treesitter/nvim-treesitter'
 
   if packer_bootstrap then
     require('packer').sync()
