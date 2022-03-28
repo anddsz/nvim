@@ -48,23 +48,16 @@ return require('packer').startup(function(use)
     })
 
     use({
-        'nvim-lualine/lualine.nvim',
-        requires = { 'ryanoasis/vim-devicons', opt = true },
+        'vim-airline/vim-airline',
+        requires = { 'ryanoasis/vim-devicons',
+        'vim-airline/vim-airline-themes', opt = true},
     })
 
-    use({
-        'akinsho/bufferline.nvim',
-        config = function() require('plugins.bufferline') end
-    })
-
-    use({
-        'numToStr/Comment.nvim',
-        config = function() require('Comment').setup{} end
-    })
+    use 'preservim/nerdcommenter'
 
     use 'williamboman/nvim-lsp-installer'
 
-    use 'folke/tokyonight.nvim'
+    use 'morhetz/gruvbox'
     use 'ap/vim-css-color'
 
     use 'nvim-treesitter/nvim-treesitter'
