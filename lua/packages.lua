@@ -3,14 +3,14 @@ local cmd = vim.cmd
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
 ]])
 
 cmd([[packadd packer.nvim]])
@@ -30,7 +30,6 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-lua/plenary.nvim'
         },
-        config = function() require('plugins.telescope') end
     })
 
     use({
@@ -44,25 +43,25 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-vsnip',
             'hrsh7th/vim-vsnip'
         },
-        config = function() require('plugins.lsp') end
+        config = function() require('plugins.nvim-lspconfig') end
     })
 
-    use({
-        'vim-airline/vim-airline',
-        requires = { 'ryanoasis/vim-devicons',
-        'vim-airline/vim-airline-themes', opt = true},
-    })
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
-    use 'preservim/nerdcommenter'
-
-    use 'williamboman/nvim-lsp-installer'
-
-    use 'morhetz/gruvbox'
-    use 'ap/vim-css-color'
+    use 'tpope/vim-commentary'
+    use 'tpope/vim-surround'
 
     use 'nvim-treesitter/nvim-treesitter'
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+    use 'williamboman/nvim-lsp-installer'
+
+    use 'folke/tokyonight.nvim'
+    use 'ap/vim-css-color'
+
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)

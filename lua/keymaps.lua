@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', "<leader>fg", "<Cmd>:Telescope live_grep<CR>", { no
 vim.api.nvim_set_keymap('n', "<leader>fh", "<Cmd>:Telescope help_tags<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', "<leader>e", "<Cmd>:NERDTreeToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', "<leader>t", "<Cmd>:TagbarOpenAutoClose<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "<leader>t", "<Cmd>:TagbarToggle<CR>", { noremap = true, silent = true })
 
 -- Insert mode
 
