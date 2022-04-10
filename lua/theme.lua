@@ -1,8 +1,9 @@
+
+vim.o.background = 'dark'
+
 vim.o.termguicolors = true
 
-vim.g.tokyonight_style = "night"
-require('lualine').setup{
-    options = { theme = 'tokyonight' }
-}
-
-vim.cmd[[colorscheme tokyonight]]
+vim.g['airline#extensions#tabline#enabled'] = 1
+vim.g.airline_powerline_fonts = 1
+vim.g.airline_theme = 'base16'
+vim.cmd[[colorscheme gruvbox-material]]

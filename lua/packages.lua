@@ -15,24 +15,17 @@ augroup end
 
 cmd([[packadd packer.nvim]])
 return require('packer').startup(function(use)
+    -- Packer
     use 'wbthomason/packer.nvim'
 
-    use 'preservim/nerdtree'
-    use 'preservim/tagbar'
+    -- Language Server Protocol
+    use 'williamboman/nvim-lsp-installer'
 
-    use({
-        'windwp/nvim-autopairs',
-        config = function() require('plugins.nvim-autopairs') end
-    })
+    use 'nvim-treesitter/nvim-treesitter'
 
-    use({
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        },
-    })
 
-    use({
+
+    use {
         'neovim/nvim-lspconfig',
         requires = {
             'hrsh7th/nvim-cmp',
@@ -44,22 +37,34 @@ return require('packer').startup(function(use)
             'hrsh7th/vim-vsnip'
         },
         config = function() require('plugins.nvim-lspconfig') end
-    })
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
+
+
+    -- Utilities
+    use {
+        'vim-airline/vim-airline',
+        requires = { 
+            'vim-airline/vim-airline-themes',
+            'ryanoasis/vim-devicons',
+        },
+    }
+    use 'preservim/nerdtree'
+    use 'preservim/tagbar'
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
+    use {
+        'windwp/nvim-autopairs',
+        config = function() require('plugins.nvim-autopairs') end 
+    }
+    use {
+        'nvim-telescope/telescope.nvim', requires = {
+            'nvim-lua/plenary.nvim' 
+        },
+    }
 
-    use 'nvim-treesitter/nvim-treesitter'
-
-    use 'williamboman/nvim-lsp-installer'
-
-    use 'folke/tokyonight.nvim'
-    use 'ap/vim-css-color'
+    -- Visuals
+    use 'sainnhe/gruvbox-material'
 
     if packer_bootstrap then
         require('packer').sync()

@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/andds/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  dracula = {
+    loaded = true,
+    path = "/home/andds/.local/share/nvim/site/pack/packer/start/dracula",
+    url = "https://github.com/dracula/vim"
+  },
   nerdtree = {
     loaded = true,
     path = "/home/andds/.local/share/nvim/site/pack/packer/start/nerdtree",
@@ -146,11 +151,6 @@ _G.packer_plugins = {
     path = "/home/andds/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/andds/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
   ["vim-airline"] = {
     loaded = true,
     path = "/home/andds/.local/share/nvim/site/pack/packer/start/vim-airline",
@@ -165,11 +165,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/andds/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-css-color"] = {
-    loaded = true,
-    path = "/home/andds/.local/share/nvim/site/pack/packer/start/vim-css-color",
-    url = "https://github.com/ap/vim-css-color"
   },
   ["vim-devicons"] = {
     loaded = true,
