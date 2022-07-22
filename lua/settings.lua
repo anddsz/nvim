@@ -1,24 +1,32 @@
-local o = vim.o
+local settings = {
+    backup = false,
+    clipboard = "unnamedplus",
+    completeopt = { "menuone", "noselect" },
+    conceallevel = 0,
+    fileencoding = "utf-8",
+    hlsearch = true,
+    ignorecase = true,
+    smartcase = true,
+    smartindent = true,
+    swapfile = false,
+    termguicolors = true,
+    updatetime = 300,
+    writebackup = false,
+    expandtab = true,
+    shiftwidth = 4,
+    tabstop = 4,
+    cursorline = true,
+    number = true,
+    relativenumber = true,
+    numberwidth = 4,
+    signcolumn = "yes",
+    wrap = false,
+    scrolloff = 8,
+    sidescrolloff = 8,
+}
 
-o.encoding = 'utf-8'
-o.lazyredraw = true
-o.showcmd = true
-o.number = true
-o.relativenumber = true
-o.smarttab = true
-o.expandtab = true
-o.softtabstop = 4
-o.tabstop = 4
-o.shiftwidth = 4
-o.cursorline = true
-o.cursorcolumn = true
-o.showmatch = true
-o.hlsearch = true
-o.ignorecase = true
-o.incsearch = true
-o.autoindent = true
-o.cc = '96'
-o.ttimeout = true
-o.ttimeoutlen = 100
-o.ruler = true
-o.wildmenu = true
+vim.opt.shortmess:append "c"
+
+for option, parameter in pairs(settings) do
+  vim.opt[option] = parameter
+end

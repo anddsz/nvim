@@ -18,53 +18,40 @@ return require('packer').startup(function(use)
     -- Packer
     use 'wbthomason/packer.nvim'
 
-    -- Language Server Protocol
-    use 'williamboman/nvim-lsp-installer'
-
-    use 'nvim-treesitter/nvim-treesitter'
-
-
-
     use {
-        'neovim/nvim-lspconfig',
-        requires = {
-            'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline',
-            'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip'
-        },
-        config = function() require('plugins.nvim-lspconfig') end
+        'nvim-treesitter/nvim-treesitter',
+        config = require('plugins.treesitter'),
     }
-
-
 
     -- Utilities
     use {
-        'vim-airline/vim-airline',
+        'nvim-lualine/lualine.nvim',
         requires = { 
-            'vim-airline/vim-airline-themes',
-            'ryanoasis/vim-devicons',
+            'kyazdani42/nvim-web-devicons',
         },
+        config = require('plugins.lualine'),
     }
-    use 'preservim/nerdtree'
-    use 'preservim/tagbar'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-surround'
+
     use {
-        'windwp/nvim-autopairs',
-        config = function() require('plugins.nvim-autopairs') end 
+        'kyazdani42/nvim-tree.lua',
+        config = require('plugins.tree'),
     }
+
     use {
-        'nvim-telescope/telescope.nvim', requires = {
+        'nvim-telescope/telescope.nvim',
+        requires = {
             'nvim-lua/plenary.nvim' 
         },
     }
 
+    use {
+        'neoclide/coc.nvim',
+        branch = 'release',
+        config = require('plugins.coc'),
+    }
+
     -- Visuals
-    use 'sainnhe/gruvbox-material'
+    use 'joshdick/onedark.vim'
 
     if packer_bootstrap then
         require('packer').sync()
