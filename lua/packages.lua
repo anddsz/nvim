@@ -1,26 +1,17 @@
 local fn = vim.fn
-local cmd = vim.cmd
-
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-cmd([[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]])
-
-cmd([[packadd packer.nvim]])
 return require('packer').startup(function(use)
+
     -- Packer
     use 'wbthomason/packer.nvim'
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        config = require('plugins.treesitter'),
+        config = require('plugin.treesitter'),
     }
 
     -- Utilities
@@ -29,12 +20,12 @@ return require('packer').startup(function(use)
         requires = { 
             'kyazdani42/nvim-web-devicons',
         },
-        config = require('plugins.lualine'),
+        config = require('plugin.lualine'),
     }
 
     use {
         'kyazdani42/nvim-tree.lua',
-        config = require('plugins.tree'),
+        config = require('plugin.tree'),
     }
 
     use {
@@ -47,11 +38,21 @@ return require('packer').startup(function(use)
     use {
         'neoclide/coc.nvim',
         branch = 'release',
-        config = require('plugins.coc'),
+        config = require('plugin.coc'),
+    }
+
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = require('plugin.indent-blankline'),
+    }
+
+    use {
+        'numToStr/Comment.nvim',
+        config = require('plugin.comment'),
     }
 
     -- Visuals
-    use 'joshdick/onedark.vim'
+    use 'morhetz/gruvbox'
 
     if packer_bootstrap then
         require('packer').sync()

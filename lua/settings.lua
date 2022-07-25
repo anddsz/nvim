@@ -1,6 +1,5 @@
 local settings = {
     backup = false,
-    clipboard = "unnamedplus",
     completeopt = { "menuone", "noselect" },
     conceallevel = 0,
     fileencoding = "utf-8",
@@ -19,7 +18,6 @@ local settings = {
     number = true,
     relativenumber = true,
     numberwidth = 4,
-    signcolumn = "yes",
     wrap = false,
     scrolloff = 8,
     sidescrolloff = 8,

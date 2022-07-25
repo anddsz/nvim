@@ -1,6 +1,5 @@
-
 vim.o.background = 'dark'
 
 vim.o.termguicolors = true
 
-vim.cmd[[colorscheme onedark]]
+vim.cmd[[colorscheme gruvbox]]
