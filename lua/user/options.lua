@@ -1,6 +1,6 @@
 local settings = {
     backup = false,
-    completeopt = { "menuone", "noselect" },
+    completeopt = { "menu", "menuone", "noselect" },
     conceallevel = 0,
     fileencoding = "utf-8",
     hlsearch = true,
@@ -8,7 +8,6 @@ local settings = {
     smartcase = true,
     smartindent = true,
     swapfile = false,
-    termguicolors = true,
     updatetime = 300,
     writebackup = false,
     expandtab = true,
@@ -21,10 +20,11 @@ local settings = {
     wrap = false,
     scrolloff = 8,
     sidescrolloff = 8,
+    termguicolors = true,
 }
 
 vim.opt.shortmess:append "c"
 
 for option, parameter in pairs(settings) do
-  vim.opt[option] = parameter
+    vim.opt[option] = parameter
 end
